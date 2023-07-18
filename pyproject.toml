@@ -1,0 +1,35 @@
+[project]
+name = "Mpesa Api"
+version = "1.0.0"
+description = "mpesa Api Wrapper"
+authors = [
+    {name = "Ian Daniel", email = "iandan874@gmail.com"},
+]
+maintainers = [
+  {name = "Ian Daniel", email = "iandan874@gmail.com"}
+]
+license = {text = "MIT"}
+requires-python = ">=3.7,<3.11"
+readme = "README.md"
+
+
+[tool.mypy]
+# Set the level of strictness for type checking
+strict = true
+
+# Ignore missing imports for certain modules
+ignore_missing_imports = true
+
+
+[tool.pylint.messages_control]
+disable = """
+C0415,W0511,R0902,R0913,W0622,C0116,C0103,W0621,
+R0903,W0631,W0212,W0603,R1710,C0103,W0718,W0612,C0301,C0413,W0613, 
+"""
+
+[tool.pytest]
+filterwarnings = [
+    "error",
+    "ignore::UserWarning",
+    "ignore:function ham\\(\\) is deprecated:DeprecationWarning"
+]
