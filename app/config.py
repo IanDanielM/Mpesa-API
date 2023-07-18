@@ -9,7 +9,7 @@ from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())
 config = configparser.ConfigParser()
-config.read("/home/ian/MpesaApi/config.ini")
+config.read("config.ini")
 
 
 class Config:
