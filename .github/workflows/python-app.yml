@@ -12,6 +12,14 @@ on:
 permissions:
   contents: read
 
+env:
+  SECRET_KEY: ${{ vars.SECRET_KEY }}
+  key: ${{ vars.KEY }}
+  passkey: ${{ vars.PASSKEY }}
+  ConsumerSecret: ${{ vars.CONSUMERSECRET }}
+  securitycredentials: ${{ vars.SECURITYCREDENTIALS }}
+  shortcode: ${{ vars.SHORTCODE }}
+  
 jobs:
   build:
 
@@ -34,15 +42,6 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Set Environment Variables
-      env:
-        SECRET_KEY: ${{ env.mpesa.SECRET_KEY }}
-        key: ${{ env.mpesa.KEY }}
-        passkey: ${{ env.mpesa.KEY }}
-        ConsumerSecret: ${{ env.mpesa.CONSUMERSECRET }}
-        securitycredentials: ${{ env.mpesa.SECURITYCREDENTIALS }}
-        shortcode: ${{ env.mpesa.SHORTCODE }}
-
     - name: Test with pytest
       run: |
         pytest
