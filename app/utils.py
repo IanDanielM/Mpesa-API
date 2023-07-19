@@ -65,6 +65,21 @@ def get_password() -> str:
 
 
 def make_request(url: str, data: dict[str, Any]) -> Response:
+    """
+    Makes an HTTP POST request to the specified URL with the provided data as JSON.
+
+    Args:
+        url (str): The URL to which the request should be made.
+        data (dict[str, Any]): A dictionary representing the JSON data to be sent in the request body.
+
+    Returns:
+        Response: A JSON response object containing the data returned from the request.
+
+    Raises:
+        ValueError: If the URL is empty or invalid.
+        requests.exceptions.RequestException: If a general request error occurs.
+        requests.exceptions.Timeout: If the request times out (30 seconds in this case).
+    """
     access_token = get_access_token()
     headers = {
         'Content-Type': 'application/json',
