@@ -51,14 +51,6 @@ configure your callback urls in the config.ini file
   callbackurl = 
   ```
 
-## Running Tests
-
-To run tests, run the following command
-
-```bash
-pytest tests/
-```
-
 ## Running the application
 
 ```bash
